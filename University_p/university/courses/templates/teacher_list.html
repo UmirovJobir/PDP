@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher</title>
+</head>
+<body>
+    <h2>Teachers: </h2>
+
+    <form>
+        <input name = "search" value = "{{ search }}" placeholder="">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+    {% if teachers %}
+        {% for teacher in teachers %}
+            <li>
+                    {{ teacher.first_name }} {{ teacher.last_name }} ({{ teacher.degree }})
+            </li>
+        {% endfor %}
+    {% else %}
+         <p>No teacher</p>
+    {% endif %}
+    </ul>
+
+</body>
+</html>

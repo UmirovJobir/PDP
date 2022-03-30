@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cames</title>
+</head>
+<style>
+h2{
+    color: #ff0069;
+}
+table, th{
+    color: #ff0000;
+}
+table, th, td {
+  border:1px solid black;
+    color: #001b52;
+    padding: 5px;
+}
+tr:hover{
+    background-color: #cccecc;
+}
+td:hover{
+     color: #ffffff;
+}
+input[type=text], [type=datetime-local], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+    color: #1353a4;
+  border: 1px solid #1353a4;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+label{
+    color: #00447c;
+}
+a{
+  text-decoration: none;
+}
+</style>
+<body>
+
+<a href="{% url 'home_page' %}"><h3 style="color: #042877">"Toshkent suv ta'minoti" MCHJ ga xush kelibsiz</h3></a>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Jo'natish</button>
+</form>
+
+    <h2 style="text-align: center">Ertalab ishga kelganlar</h2>
+    <table style="width: 100%">
+        <form>
+            <input name="search" value="{{ search }}" placeholder="Search name">
+            <button type="submit">Qidirish</button>
+        </form>
+        <tr>
+            <th>Ismi</th>
+            <th>Familasi</th>
+            <th>Bo'limi</th>
+            <th>Kelgan vaqti</th>
+        </tr>
+        {% for came in cames%}
+        <tr>
+            <td>{{came.first_name}}</td>
+            <td>{{came.last_name}}</td>
+            <td>{{came.section}}</td>
+            <td>{{came.arrival_time}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

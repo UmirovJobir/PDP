@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ subject.name }}</title>
+</head>
+<body>
+
+    <h1>{{ subject.name }}</h1>
+
+    <br>
+    <hr>
+    <h3>Teachers: </h3>
+    {% for teacher in subject.teachers.all %}
+        <li>
+            {{ teacher }}
+        </li>
+    {% endfor %}
+
+    <br>
+    <hr>
+    <h3>Specialities: </h3>
+    {% for speciality in subject.specialities.all %}
+        <li>
+            {{ speciality }}
+        </li>
+    {% endfor %}
+
+
+
+
+</body>
+</html>

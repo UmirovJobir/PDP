@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Specialities</title>
+</head>
+<body>
+    <h2>Specialities: </h2>
+
+    <ul>
+        {% if specialities %}
+            {% for speciality in specialities %}
+                <li>{{ speciality.name}}</li>
+            {% endfor %}
+        {% else %}
+            <p>No speciality</p>
+        {% endif %}
+    </ul>
+
+
+</body>
+</html>

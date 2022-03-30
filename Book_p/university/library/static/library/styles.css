@@ -1,0 +1,9 @@
+body {
+    text-align: center;
+    padding: 80px;
+}
+
+#foo{
+    color: black;
+    font-size: 40px;
+}

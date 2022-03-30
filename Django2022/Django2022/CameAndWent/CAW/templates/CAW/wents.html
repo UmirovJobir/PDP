@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wents</title>
+</head>
+<style>
+table, th, td {
+  border:1px solid black;
+    padding: 5px;
+}
+input[type=text], [type=datetime-local], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+a{
+  text-decoration: none;
+}
+</style>
+<body>
+<a href="{% url 'home_page' %}"><h3 style="color: #042877">"Toshkent suv ta'minoti" MCHJ uyingizga yaxshi ketib oling !!!</h3></a>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Jo'natish</button>
+</form>
+
+    <h2 style="text-align: center">Kech qurun ishdan ketkanlar</h2>
+    <table style="width: 100%">
+        <form>
+            <input name="search" value="{{ search }}" placeholder="Search name">
+            <button type="submit">Search</button>
+        </form>
+        <tr>
+            <th>Ismi</th>
+            <th>Familasi</th>
+            <th>Bo'limi</th>
+            <th>Ketgan vaqti</th>
+        </tr>
+        {% for went in wents%}
+        <tr>
+            <td>{{went.first_name}}</td>
+            <td>{{went.last_name}}</td>
+            <td>{{went.section}}</td>
+            <td>{{went.time_to_leave}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

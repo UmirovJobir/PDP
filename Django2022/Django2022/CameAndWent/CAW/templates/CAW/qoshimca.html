@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toshkent suv ta'minoti/Kelgan vaqtingiz</title>
+
+</head>
+<style>
+input[type=text], [type=datetime-local], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+a{
+  text-decoration: none;
+}
+</style>
+<body>
+
+<a href="{% url 'home_page' %}"><h3 style="color: #042877">"Toshkent suv ta'minoti" MCHJ ga xush kelibsiz</h3></a>
+
+<div>
+  <form action="/action_page.php">
+    <label for="fname">Xodimning ismi</label>
+    <input type="text" id="fname" name="firstname" placeholder="Ismingizni kiriting..">
+
+    <label for="lname">Xodimning familasi</label>
+    <input type="text" id="lname" name="lastname" placeholder="Familangizni kiriting..">
+
+    <label for="country">Bo'limingiz</label>
+    <select id="country" name="country">
+      <option value="ishl">Ishlab chiqarish bo'limi</option>
+      <option value="mex">Mexanika bo'limi</option>
+      <option value="ene">Energetika bo'limi</option>
+      <option value="Iqt">Iqtisod bo'limi</option>
+      <option value="Ijro">Ijro intizom bo'limi</option>
+      <option value="qur">Qurilish bo'limi</option>
+    </select>
+      <label for="data">Ketgan vaqtingiz</label>
+      <input type="datetime-local" id="data" name="KetganVaqt" placeholder="Ketgan vaqtingizni kiriting..">
+
+
+    <input type="submit" value="Jo'natish">
+  </form>
+</div>
+
+</body>
+</html>
